@@ -55,3 +55,7 @@
     String filme = leitura.nextLine();
     int data = leitura.nextInt();
 
+// o que .java precisa pra compilar?
+    // pode ser sem método main e ainda pode ser um arquivo vazio
+
+// 
