@@ -49,6 +49,8 @@
     }
 
 // receber um input do teclado
+
+
     import java.util.Scanner;
     //
     Scanner leitura = new Scanner(System.in);
