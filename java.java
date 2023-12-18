@@ -57,3 +57,11 @@
     String filme = leitura.nextLine();
     int data = leitura.nextInt();
 
+// o que .java precisa pra compilar?
+    // pode ser sem método main e ainda pode ser um arquivo vazio
+
+// Qual a diferença entre os modificadores de acesso?
+    public é acessado por todos
+    private é acessado somente pela própria classe
+    default é acessado pelos irmãos (classes dentro do mesmo package)
+    protected ...
