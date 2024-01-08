@@ -19,7 +19,7 @@ Cada elemento sabe o index do anterior e do próximo. Fácil alterar.
 
 Mas iterar é difícil pois tem que começar do início.
 </details>
-<br>
+
 
 <details>
 <summary>java.util.LinkedList compartilha...</summary>
@@ -38,4 +38,15 @@ List<Integer> myList = new LinkedList<>();
 ```
 </details>
 
+<details>
+<summary>
+It is possible to change main args to a list
+</summary>
+
+```java
+  public static void main(String[] args) {
+    List<String> argumentos = Arrays.asList(args);
+  }
+```
+</details>
 
