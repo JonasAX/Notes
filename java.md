@@ -134,3 +134,182 @@ Integer myInt = Integer.valueOf("22");
 </details>
 
 ## Sort
+
+<details>
+<summary>
+How to sort a list of String?
+</summary>
+
+```java
+import java.util.Collections;
+Collections.sort(minhaStrList);
+```
+</details>
+
+<details>
+<summary>
+How to reversevely sort a list of Strings?
+</summary>
+
+```java
+Collections.reverse(minhaStrList)
+```
+</details>
+
+<details>
+<summary>
+Why today list.sort() is used instead of another static Class?
+</summary>
+Because that how it should be in OO world, where each object is responsible for itself.
+</details>
+
+<details>
+<summary>
+How to implement list.sort( ) ?
+</summary>
+list.sort() needs a Comparator class
+
+```java
+list.sort(new NomeTitularComparator());
+```
+For strings
+
+```java
+class TitularDaContaComparator implements Comparator<Conta> {
+    @Override
+    public int compare(Conta c1, Conta c2) {
+
+       return c1.getTitular().getNome().compareTo(c2.getTitular().getNome());
+    }
+}
+```
+
+For integers
+
+```java
+class NumeroDaContaComparator  implements Comparator<Conta> {
+    @Override
+    public int compare(Conta c1, Conta c2) {
+        return c1.getNumero() - c2.getNumero();
+        //return Integer.compare(c1.getNumero(), c2.getNumero());
+    }
+}
+```
+</details>
+
+<details>
+<summary>
+Old way to sort a list
+</summary>
+
+```java
+Collections.sort(lista, new TitularContaComparator());
+```
+</details>
+
+<details>
+<summary>
+How to order by natural order
+</summary>
+
+```java
+//Old way
+//Collections.sort(lista);
+
+//New way
+list.sort(null);
+```
+Then 
+
+```java
+class Conta implements Comparable<Conta> {
+    /* */
+    @Override
+    public int compareTo(Conta o) {
+        return Double.compare(this.saldo, o.saldo);
+        //possible to access because its inside the class
+    }
+}
+```
+</details>
+
+<details>
+<summary>
+Origin of Comparable and Comparator
+</summary>
+Para natural order:
+java.lang.Comparable
+To any order:
+java.util.Comparator
+</details>
+
+<details>
+<summary>
+O que é ordem natural?
+</summary>
+Ordem usada pelo próprio elemento da lista
+</details>
+
+<details>
+<summary>
+Difference between Arrays and Collections
+</summary>
+Arrays is also a class full of static methods inside java.util. But it works with arrays
+</details>
+
+
+## Anonymous classes & lambas
+
+<details>
+<summary>
+Functional Objects
+</summary>
+Some classes exists only to store a single method. The objects from those clases are "Functional Objects".
+</details>
+
+<details>
+<summary>
+Anonymous classes
+</summary>
+When you initialize without declaring a class first. The implementation of the class comes together with it.
+Example of anonymous class. **Necessary to add () to call the constructor**.
+
+```java
+    lista.sort(new Comparator<Conta>() {
+        @Override
+        public int compare(Conta c1, Conta c2) {
+            return Integer.compare(c1.getNumero(), c2.getNumero());
+        }
+    });
+```
+
+How it was before.
+
+```java
+class NumeroDaContaComparator2 implements Comparator<Conta> {
+	@Override
+	public int compare(Conta c1, Conta c2) {
+		return Integer.compare(c1.getNumero(), c2.getNumero());
+	}
+}
+```
+
+But this will sacrifice readability. But it is also possible to store the anonymous classes inside a variable.
+
+```java
+Comparator<Conta> comp = new Comparator<Conta>() {
+    @Override
+    public int compare(Conta c1, Conta c2) {
+        return Integer.compare(c1.getNumero(), c2.getNumero());
+    }
+} 
+```
+
+</details>
+
+
+<details>
+<summary>
+Lambdas</summary>
+To clean the code and showing only the parameters.
+</details>
