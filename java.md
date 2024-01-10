@@ -311,5 +311,51 @@ Comparator<Conta> comp = new Comparator<Conta>() {
 <details>
 <summary>
 Lambdas</summary>
-To clean the code and showing only the parameters.
+To clean the code and showing only the parameters.<br>
+From this:
+
+```java
+lista.sort(new Comparator<Conta>() {
+    @Override
+    public int compare(Conta c1, Conta c2) {
+        return c1.getNumero() - c2.getNumero();
+    }
+});
+```
+To this:
+
+```java
+lista.sort((c1, c2) -> c1.getNumero() - c2.getNumero());
+```
 </details>
+
+
+<details>
+<summary>
+In a list using OO who should know how to loop?
+</summary>
+The list itself. That's why this exists:
+
+```java
+list.forEach( conta -> System.out.println("Conta "+ conta) )
+```
+</details>
+
+<details>
+<summary>
+Iterator</summary>
+
+```java
+List<String> nomes = new ArrayList<>();
+nomes.add("Super Mario");
+nomes.add("Yoshi"); 
+nomes.add("Donkey Kong"); 
+
+Iterator<String> it = nomes.iterator();
+
+while(it.hasNext()) {
+  System.out.println(it.next());
+}
+```
+</details>
+
