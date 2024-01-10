@@ -360,3 +360,29 @@ while(it.hasNext()) {
 ```
 </details>
 
+<br><br>
+
+# Novidades Java 8
+
+<details>
+<summary>
+Qual a interface que o novo método forEach recebe como parâmetro?</summary>
+Comsumer que possui um único método chamado accept
+</details>
+
+
+<details><summary>O que são default methods?</summary>
+São métodos que surgem com o java 8. Antes não era possível adicionar métodos com corpo na interface (chamados métodos concretos).
+
+```java
+void myMethod(); //método sem corpo, ou absrtrato
+```
+Default métodos tem corpo e são aplicados automaticamente. Sem quebrar.
+</details>
+
+<details><summary>Comparator factory</summary>
+É uma expressão que gera um comparator.
+
+```java
+palavras.sort(Comparator.comparing(myString -> myString.length()));
+```
