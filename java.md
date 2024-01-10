@@ -272,6 +272,7 @@ Some classes exists only to store a single method. The objects from those clases
 Anonymous classes
 </summary>
 When you initialize without declaring a class first. The implementation of the class comes together with it.
+
 Example of anonymous class. **Necessary to add () to call the constructor**.
 
 ```java
