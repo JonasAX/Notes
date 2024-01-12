@@ -565,6 +565,9 @@ System.out.println("Passaram " + (fim - ini) + " milissegundos");
 
 
 ## Scanner 
+
+Scanner é um objeto que recebe um texto e itera sobre ele. Ele pode receber do console, System.in, ou de um "new File();"
+
 <details><summary>Read from file using Scanner
 </summary>
 
@@ -574,6 +577,88 @@ while (sc.hasNextLine()) System.out.println(sc.nextLine());
 sc.close();
 ```
 </details>
+
+<details><summary>Como usar um println em um scanner com arrays(csv)
+</summary>
+
+```java
+while (sc.hasNextLine()) System.out.println(Arrays.toString(sc.nextLine().split(",")));
+```
+</details>
+
+
+
+
+O sc.next() interfere no sc.nextLine() e vice-versa.
+
+
+O sc.next() usa o sc.useDelimiter(",") como separador, e o sc.nextLine() usa a line break como separador. 
+
+<details><summary>Como eu poderia iterar uma linha do nextLine() ou next() do Scanner?
+</summary>
+Sperando o output pelo método da String
+
+```java
+String[] valores = linha.split(",");
+System.out.println(valores);
+
+```
+
+</details>
+
+Vantagem do Scanner.next() sobre String.split()
+Eu posso escolher o tipo do Scanner.next com o Scanner.nextDouble e.x.
+
+Usando o String.format() para formatar
+
+Para mudar o ponto do 
+String.format("%s %s %s", hello, aahc, aok3)
+                        String valorFormatado = String.format(new Locale("pt", "BR"), "%s - %04d-%08d, %20s: %05.2f", ...
+
+o new Locale é usado pois não é utilizado pois não tem o Locale.PT, mas tem Locale.GERMANY que é uma constante
+
+Salvando propriedades/Abstraindo propriedades do código
+
+    Properties props = new Properties(); 
+        props.setProperty("login", "alura");
+
+        props.store(new FileWriter("conf.properties"), "algum comentário");
+     
+        props.load(new FileReader("conf.properties"));
+            String login = props.getProperty("login");
+            String senha = props.getProperty("senha");
+            String endereco = props.getProperty("endereco");
+
+
+
+## Charset
+
+Processamento por nodo (+registro) e nao batch fixo
+
+
+
+<details><summary>O que são default methods?</summary>
+São métodos que surgem com o java 8. Antes não era possível adicionar métodos com corpo na interface (chamados métodos concretos).
+
+```java
+void myMethod(); //método sem corpo, ou absrtrato
+```
+Default métodos tem corpo e são aplicados automaticamente. Sem quebrar.
+</details>
+
+Se o unicode fosse armazenado em formato "raw", ocuparia muito espaço, então é compactada usando UTFs ou ASCII ou windows 1252
+UTF significa Unicode Transformation Format
+
+a compactação do unicode chama-se encoding
+
+O unicode é um key value pair onde o key chama-se codepoint
+
+ascii usa uma tabela de 7 bits pois são 127
+
+"q".getBytes()
+"q".getBytes()
+"q".getBytes()
+
 
 
 <br><br>
