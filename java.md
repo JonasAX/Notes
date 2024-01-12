@@ -362,6 +362,222 @@ while(it.hasNext()) {
 
 <br><br>
 
+# Java.io 
+Link: https://unibb.alura.com.br/course/java-trabalhando-com-io
+
+## Leitura
+
+<details><summary> Boilerplate para ler linha </summary>
+
+```java
+//public static void main(String[] args) throws IOException {
+FileInputStream fis = new FileInputStream("lorem.txt");
+InputStreamReader isr = new InputStreamReader(fis);
+BufferedReader br = new BufferedReader(isr);
+String linha = br.readLine();
+// System.out.println(linha);
+br.close();
+
+```
+</details>
+
+<details><summary> FileNotFoundException é uma exception de quem?</summary>
+FileInputStream</details>
+
+<details><summary> Hierarquia de FileNotFoundException</summary>
+Exception > IOException > FileNotFoundException
+</details>
+
+<details><summary> InputStreamReader e FileInputStream não precisam ser fechados</summary>
+pois o BufferedReader já fecha eles.</details>
+
+<details><summary>Boilerplate para ler TODO o arquivo</summary>
+
+```java
+while (linha != null) {
+    System.out.println(linha);
+    linha = br.readLine();
+}
+br.close();
+```
+</details>
+
+<details><summary> Substituir pela classe mãe é possível </summary>
+
+```java
+//FileInputStream fis = new FileInputStream("lorem.txt");
+InputStream fis = new FileInputStream("lorem.txt");
+//InputStreamReader isr = new InputStreamReader(fis);
+Reader isr = new InputStreamReader(fis);
+// Aqui não por causa da br.readLine();
+BufferedReader br = new BufferedReader(isr);
+```
+</details>
+
+
+## Escrita
+
+<details><summary> Boiler para escrita é semelhante </summary>
+
+```java
+OutputStream fos = new FileOutputStream("lorem2.txt");
+Writer osw = new OutputStreamWriter(fos);
+BufferedWriter bw = new BufferedWriter(osw);
+
+bw.write("asjkdfasdço asdifja sodfijaosidgjaoisdjgoiaj");
+// 2 newline = 1 newline
+bw.newLine();
+bw.newLine();
+bw.write("lajksdfasdojiasdgio aoinavsdnasdion asodifjaodf");
+
+bw.close();
+```
+</details>
+
+
+<details><summary> Boiler para cópia </summary>
+
+```java
+FileInputStream fis = new FileInputStream("lorem-copia.txt");
+InputStreamReader isr = new InputStreamReader(fis);
+BufferedReader br = new BufferedReader(isr);
+String linha = br.readLine();
+
+OutputStream fos = new FileOutputStream("lorem-copia2.txt");
+Writer osw = new OutputStreamWriter(fos);
+BufferedWriter bw = new BufferedWriter(osw);
+
+while (linha != null) {
+    bw.write(linha);
+    bw.newLine();
+    linha = br.readLine();
+}
+
+br.close();
+bw.close();
+```
+</details>
+
+<details> <summary>Boiler para copia e cola no console.
+</summary>
+
+```java
+FileInputStream fis = System.out;
+//InputStreamReader isr = new InputStreamReader(fis);
+//BufferedReader br = new BufferedReader(isr);
+//String linha = br.readLine();
+
+OutputStream fos = System.in; //new FileOutputStream("lorem-copia2.txt");
+//Writer osw = new OutputStreamWriter(fos);
+//BufferedWriter bw = new BufferedWriter(osw);
+
+while (linha != null && !linha.isEmpty()) {
+    //bw.write(linha);
+    //bw.newLine();
+    bw.flush();
+    //linha = br.readLine();
+}
+
+br.close();
+bw.close();
+```
+
+</details>
+
+
+## FileWriter e PrintStream
+
+<details><summary>Boiler com FileWriter </summary>
+
+```java
+BufferedWriter bw = new BufferedWriter(new FileWriter("lorem2.txt"));
+
+bw.write("teste teste");
+bw.newLine();
+bw.newLine();
+bw.write("out out out");
+
+bw.close();
+```
+</details>
+
+<details><summary>FileWriter é um</summary>
+Writer e não um OutputStream
+</details>
+
+<details><summary>A classe deve ter o mesmo nome do arquivo se...</summary>
+caso ela seja "public class" e não apenas "class"</details>
+
+<details><summary>PrintStream </summary>
+Mais antigo que os Reads e os Writers
+
+```java
+PrintStream ps = new PrintStream(new File("lorem2.txt"));
+ps.println("teste teste");
+ps.println();
+ps.println("out out out");
+ps.close();
+```
+</details>
+
+<details><summary> PrintWriter </summary>
+Alternativa pra não confundir qual usar
+
+```java
+PrintWriter ps = new PrintWriter"lorem2.txt");
+ps.println("teste teste");
+ps.println();
+ps.println("out out out");
+ps.close();
+```
+</details>
+
+<details><summary> Pode ser usado métodos para melhorar a compatibilidade entre sistemas nas newlines </summary>
+
+```java
+FileWriter fw = new FileWriter("arquivo.txt");
+
+fw.write("Lorem ipsum dolor sit amet ...");
+//fw.write("\n");
+fw.write(System.lineSeparator();
+// ou trocar pelo PrintWriter com o .println();
+
+fw.write("tempor incididunt ut labore ...");
+
+fw.close();
+```
+</details>
+
+<details><summary>Medir tempo de execução</summary>
+
+```java
+long ini = System.currentTimeMillis();
+
+BufferedWriter bw = new BufferedWriter(new FileWriter("lorem2.txt"));
+bw.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod");
+bw.close();
+
+long fim = System.currentTimeMillis();
+System.out.println("Passaram " + (fim - ini) + " milissegundos");
+
+```
+</details>
+
+
+## Scanner 
+<details><summary>Read from file using Scanner
+</summary>
+
+```java
+Scanner sc = new Scanner(new File("contas.csv"));
+while (sc.hasNextLine()) System.out.println(sc.nextLine());
+sc.close();
+```
+</details>
+
+
+<br><br>
+
 # Novidades Java 8
 
 <details>
