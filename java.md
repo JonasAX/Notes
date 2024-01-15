@@ -9,7 +9,8 @@ Rápida para iterar, mas se remover
 ```java
 list.remove(1);
 ```
-muda toda a indexação da lista  
+
+muda toda a indexação da lista
 </details>
 
 
@@ -36,6 +37,7 @@ Isso é devido a interface List
 ```java
 List<Integer> myList = new LinkedList<>(); 
 ```
+
 </details>
 
 <details>
@@ -43,12 +45,12 @@ List<Integer> myList = new LinkedList<>();
     It is possible to change main args to a list
     </summary>
 
-
 ```java
 public static void main(String[] args) {
     (args);
 }
 ```
+
 </details>
 
 ## Vector & Collection
@@ -69,9 +71,7 @@ Because List accepts duplicate entries. Both extends Collection. Vector is under
 
 ## Wrapper
 
-
-<details>
-<summary>
+<details><summary>
 Why do I need references in List < Integer >
 </summary>
 No mundo de arrays existem primitivos e referências.
@@ -84,6 +84,7 @@ myList.add(15);
 //it's called autoboxing
 //from Double to double is Unboxing (for example)
 ```
+
 </details>
 
 <details>
@@ -98,6 +99,7 @@ Integer numero = new Integer(22);
 //New way
 Integer numero = Integer.valueOf(22);
 ```
+
 </details>
 
 <details>
@@ -111,13 +113,15 @@ Integer.intValue();
 //parse is a static method that receives something
 Integer.parseInt(...);
 ```
+
 </details>
 
 <details>
 <summary>
 Qual o problema de Integer.valueOf</summary>
 
-Integer.valueOf("22"); retorna uma referência. E se for necessário uma int haveria um unboxing, então não seria a melhor opção, e sim:
+Integer.valueOf("22"); retorna uma referência. E se for necessário uma int haveria um unboxing, então não seria a melhor
+opção, e sim:
 
 Integer.parseInt("22"); devolve um int diretamente
 </details>
@@ -144,6 +148,7 @@ How to sort a list of String?
 import java.util.Collections;
 Collections.sort(minhaStrList);
 ```
+
 </details>
 
 <details>
@@ -154,6 +159,7 @@ How to reversevely sort a list of Strings?
 ```java
 Collections.reverse(minhaStrList)
 ```
+
 </details>
 
 <details>
@@ -172,6 +178,7 @@ list.sort() needs a Comparator class
 ```java
 list.sort(new NomeTitularComparator());
 ```
+
 For strings
 
 ```java
@@ -195,6 +202,7 @@ class NumeroDaContaComparator  implements Comparator<Conta> {
     }
 }
 ```
+
 </details>
 
 <details>
@@ -205,6 +213,7 @@ Old way to sort a list
 ```java
 Collections.sort(lista, new TitularContaComparator());
 ```
+
 </details>
 
 <details>
@@ -219,7 +228,8 @@ How to order by natural order
 //New way
 list.sort(null);
 ```
-Then 
+
+Then
 
 ```java
 class Conta implements Comparable<Conta> {
@@ -231,6 +241,7 @@ class Conta implements Comparable<Conta> {
     }
 }
 ```
+
 </details>
 
 <details>
@@ -256,7 +267,6 @@ Difference between Arrays and Collections
 </summary>
 Arrays is also a class full of static methods inside java.util. But it works with arrays
 </details>
-
 
 ## Anonymous classes & lambas
 
@@ -323,11 +333,13 @@ lista.sort(new Comparator<Conta>() {
     }
 });
 ```
+
 To this:
 
 ```java
 lista.sort((c1, c2) -> c1.getNumero() - c2.getNumero());
 ```
+
 </details>
 
 
@@ -340,6 +352,7 @@ The list itself. That's why this exists:
 ```java
 list.forEach( conta -> System.out.println("Conta "+ conta) )
 ```
+
 </details>
 
 <details>
@@ -358,11 +371,13 @@ while(it.hasNext()) {
   System.out.println(it.next());
 }
 ```
+
 </details>
 
 <br><br>
 
-# Java.io 
+# Java.io
+
 Link: https://unibb.alura.com.br/course/java-trabalhando-com-io
 
 ## Leitura
@@ -379,6 +394,7 @@ String linha = br.readLine();
 br.close();
 
 ```
+
 </details>
 
 <details><summary> FileNotFoundException é uma exception de quem?</summary>
@@ -400,6 +416,7 @@ while (linha != null) {
 }
 br.close();
 ```
+
 </details>
 
 <details><summary> Substituir pela classe mãe é possível </summary>
@@ -412,8 +429,8 @@ Reader isr = new InputStreamReader(fis);
 // Aqui não por causa da br.readLine();
 BufferedReader br = new BufferedReader(isr);
 ```
-</details>
 
+</details>
 
 ## Escrita
 
@@ -432,6 +449,7 @@ bw.write("lajksdfasdojiasdgio aoinavsdnasdion asodifjaodf");
 
 bw.close();
 ```
+
 </details>
 
 
@@ -456,6 +474,7 @@ while (linha != null) {
 br.close();
 bw.close();
 ```
+
 </details>
 
 <details> <summary>Boiler para copia e cola no console.
@@ -484,7 +503,6 @@ bw.close();
 
 </details>
 
-
 ## FileWriter e PrintStream
 
 <details><summary>Boiler com FileWriter </summary>
@@ -499,6 +517,7 @@ bw.write("out out out");
 
 bw.close();
 ```
+
 </details>
 
 <details><summary>FileWriter é um</summary>
@@ -518,6 +537,7 @@ ps.println();
 ps.println("out out out");
 ps.close();
 ```
+
 </details>
 
 <details><summary> PrintWriter </summary>
@@ -530,6 +550,7 @@ ps.println();
 ps.println("out out out");
 ps.close();
 ```
+
 </details>
 
 <details><summary> Pode ser usado métodos para melhorar a compatibilidade entre sistemas nas newlines </summary>
@@ -546,6 +567,7 @@ fw.write("tempor incididunt ut labore ...");
 
 fw.close();
 ```
+
 </details>
 
 <details><summary>Medir tempo de execução</summary>
@@ -561,12 +583,13 @@ long fim = System.currentTimeMillis();
 System.out.println("Passaram " + (fim - ini) + " milissegundos");
 
 ```
+
 </details>
 
+## Scanner
 
-## Scanner 
-
-Scanner é um objeto que recebe um texto e itera sobre ele. Ele pode receber do console, System.in, ou de um "new File();"
+Scanner é um objeto que recebe um texto e itera sobre ele. Ele pode receber do console, System.in, ou de um "new
+File();"
 
 <details><summary>Read from file using Scanner
 </summary>
@@ -576,6 +599,7 @@ Scanner sc = new Scanner(new File("contas.csv"));
 while (sc.hasNextLine()) System.out.println(sc.nextLine());
 sc.close();
 ```
+
 </details>
 
 <details><summary>Como usar um println em um scanner com arrays(csv)
@@ -584,6 +608,7 @@ sc.close();
 ```java
 while (sc.hasNextLine()) System.out.println(Arrays.toString(sc.nextLine().split(",")));
 ```
+
 </details>
 
 
@@ -591,8 +616,7 @@ while (sc.hasNextLine()) System.out.println(Arrays.toString(sc.nextLine().split(
 
 O sc.next() interfere no sc.nextLine() e vice-versa.
 
-
-O sc.next() usa o sc.useDelimiter(",") como separador, e o sc.nextLine() usa a line break como separador. 
+O sc.next() usa o sc.useDelimiter(",") como separador, e o sc.nextLine() usa a line break como separador.
 
 <details><summary>Como eu poderia iterar uma linha do nextLine() ou next() do Scanner?
 </summary>
@@ -611,9 +635,9 @@ Eu posso escolher o tipo do Scanner.next com o Scanner.nextDouble e.x.
 
 Usando o String.format() para formatar
 
-Para mudar o ponto do 
+Para mudar o ponto do
 String.format("%s %s %s", hello, aahc, aok3)
-                        String valorFormatado = String.format(new Locale("pt", "BR"), "%s - %04d-%08d, %20s: %05.2f", ...
+String valorFormatado = String.format(new Locale("pt", "BR"), "%s - %04d-%08d, %20s: %05.2f", ...
 
 o new Locale é usado pois não é utilizado pois não tem o Locale.PT, mas tem Locale.GERMANY que é uma constante
 
@@ -629,8 +653,6 @@ Salvando propriedades/Abstraindo propriedades do código
             String senha = props.getProperty("senha");
             String endereco = props.getProperty("endereco");
 
-
-
 ## Charset
 
 Processamento por nodo (+registro) e nao batch fixo
@@ -643,10 +665,12 @@ São métodos que surgem com o java 8. Antes não era possível adicionar métod
 ```java
 void myMethod(); //método sem corpo, ou absrtrato
 ```
+
 Default métodos tem corpo e são aplicados automaticamente. Sem quebrar.
 </details>
 
-Se o unicode fosse armazenado em formato "raw", ocuparia muito espaço, então é compactada usando UTFs ou ASCII ou windows 1252
+Se o unicode fosse armazenado em formato "raw", ocuparia muito espaço, então é compactada usando UTFs ou ASCII ou
+windows 1252
 UTF significa Unicode Transformation Format
 
 a compactação do unicode chama-se encoding
@@ -658,8 +682,6 @@ ascii usa uma tabela de 7 bits pois são 127
 "q".getBytes()
 "q".getBytes()
 "q".getBytes()
-
-
 
 <br><br>
 
@@ -678,6 +700,7 @@ São métodos que surgem com o java 8. Antes não era possível adicionar métod
 ```java
 void myMethod(); //método sem corpo, ou absrtrato
 ```
+
 Default métodos tem corpo e são aplicados automaticamente. Sem quebrar.
 </details>
 
