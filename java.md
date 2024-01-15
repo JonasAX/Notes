@@ -710,3 +710,118 @@ Default métodos tem corpo e são aplicados automaticamente. Sem quebrar.
 ```java
 palavras.sort(Comparator.comparing(myString -> myString.length()));
 ```
+
+</details>
+<br> <br>
+
+# Maven
+
+Link para o curso: https://unibb.alura.com.br/course/maven-gerenciamento-dependencias-build-aplicacoes-java
+
+## Conhecendo
+
+<details><summary>Antes do Maven havia</summary>Apache Ant que tinha um passo a passo automatizado para buildar. build.xml 
+
+Também tinha o Apache Ivy para gerenciar dependências que o Ant não fazia ivy.xml
+
+Dai surgiu o Apache Maven (Ant + Ivy)
+</details>
+
+<details><summary>A partir da onde é executado?</summary>
+Pode ser do prompt, mas já é integrado nas IDEs
+
+New Project > (maven archetypes) ou (maven simples)
+</details>
+
+<details><summary>Forms iniciais do maven</summary>
+Group ID: br.com.bb
+Artifact ID: loja   (nome único do programa)
+</details>
+
+<details><summary>Packaging</summary>
+war é para web
+jar é comum e também para projetos Spring
+</details>
+
+<details><summary>pom.xml</summary>
+tem as infos do form inicial
+Configs para build e dependencies
+pode mudar as pastas padrões
+</details>
+
+<details><summary>estrutura de diretório</summary>
+src/main/java   classes, interfaces, enums
+src/main/resources  configs, htmls...
+</details>
+
+## build
+
+<details>
+<summary>build pelo terminal
+</summary>
+
+```bash
+mvn complie
+mvn clean //quando há erros
+```
+
+</details>
+
+É possível configurar uma versão do java para configurar no Maven. Por padrão é o Java 5. Na tag <build><plugin>
+
+O build vai pra pasta loja/target
+
+mvn test //faz o teste
+
+<details>
+<summary>buildar o projeto em uma versão distribuível
+</summary>
+
+```bash
+mvn package
+```
+
+Vai para a pasta target
+</details>
+
+<details>
+<summary>buildar o projeto para dentro do repositório local
+</summary>
+
+```bash
+mvn install 
+```
+
+Também faz os testes
+</details>
+
+
+<details>
+<summary>buildar o projeto enviando para um repo externo?
+</summary>
+
+```bash
+mvn deploy 
+```
+
+Mas tem que ter permissão e configurar o pom.xml pra isso
+</details>
+
+<details>
+<summary>Mudar o nome final da build
+</summary>
+
+```bash
+<build>
+<finalName>loja</finalName>
+```
+
+Mas tem que ter permissão e configurar o pom.xml pra isso
+</details>
+
+
+<details><summary>proxy</summary>dentro do settings.xml da pasta .m2</details>
+
+
+
+<br><br>
