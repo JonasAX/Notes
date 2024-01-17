@@ -37,5 +37,18 @@ Set up
                 }
             }
         }
-        
-    
+SQL no java
+    java.sql.DriverManager.getConnection()
+        return java.sql.Connection
+        "jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "root"
+    java.sql.Connection
+        bifurca em .createStatement()
+            return java.sql.Statement
+        .close()
+    java.sql.Connection.createStatement().execute()
+        return boolean
+        true = se for lista
+        false = se não tiver retorno: update, delete, insert
+     java.sql.Connection.createStatement().execute().getResultSet()
+        return ResultSet (que é o conteúdo)
+    se eu fechar a conexão, eu fecho o resultSet. Não precisa fechar o resultSet
